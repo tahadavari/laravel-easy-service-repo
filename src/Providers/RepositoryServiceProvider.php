@@ -15,7 +15,6 @@ class RepositoryServiceProvider extends ServiceProvider
                 $repositoryInterface
             );
             $concreteClass = str_replace('I', '', $repositoryClass);
-
             $this->app->bind($repositoryClass, $concreteClass);
         }
     }
