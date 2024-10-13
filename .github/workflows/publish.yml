@@ -3,7 +3,7 @@ name: Publish to Packagist
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   release:
@@ -13,18 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.0'
-
       - name: Validate composer.json
         run: composer validate --strict
 
-      - name: Install Dependencies
-        run: composer install --no-interaction --prefer-dist --no-progress --no-suggest
-
       - name: Publish to Packagist
-        run: |
-          curl -X POST https://packagist.org/api/update-package?username=tahadavari&apiToken=${{ secrets.PACKAGIST_TOKEN }} \
-          -d '{"repository": "https://github.com/tahadavari/laravel-easy-service-repo"}'
+        uses: daviddarnes/packagist-update-action@v1.2.0
+        with:
+          api-token: ${{ secrets.PACKAGIST_TOKEN }}
+          package-url: https://github.com/your-github-username/laravel-easy-service-repo
