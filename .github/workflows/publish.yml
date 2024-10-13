@@ -17,7 +17,9 @@ jobs:
         run: composer validate --strict
 
       - name: Publish to Packagist
-        uses: daviddarnes/packagist-update-action@v1.2.0
+        uses: mnavarrocarter/packagist-update@v1.0.0
         with:
-          api-token: ${{ secrets.PACKAGIST_TOKEN }}
-          package-url: https://github.com/tahadavari/laravel-easy-service-repo
+          username: "tahadavari"
+          api_token: ${{ secrets.PACKAGIST_TOKEN }}
+          package_name: taha-davari/laravel-easy-service-repo
+          domain: "packagist.org"
