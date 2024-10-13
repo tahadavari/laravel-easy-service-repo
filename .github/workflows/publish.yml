@@ -20,4 +20,4 @@ jobs:
         uses: daviddarnes/packagist-update-action@v1.2.0
         with:
           api-token: ${{ secrets.PACKAGIST_TOKEN }}
-          package-url: https://github.com/your-github-username/laravel-easy-service-repo
+          package-url: https://github.com/tahadavari/laravel-easy-service-repo
